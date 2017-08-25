@@ -1,0 +1,66 @@
+<div class="f-container">
+    <div class="f-main">
+      <div id="reco">
+        <div class="f-main-title">推荐热门产品</div>
+        <fcard [fCardList]="fCardList1"></fcard>
+        <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+        </div>
+      </div>
+      <div id="soon">
+        <div class="f-main-title">即将上线产品</div>
+        <fcard [fCardList]="fCardList2"></fcard>
+        <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+        </div>
+      </div>
+      <div id="lv">
+        <div class="f-main-title">LV绿色产业基金</div>
+        <div class="f-lv-table">
+          <nz-table #nzTable [nzDataSource]="tableData" [nzPageSize]="10">
+              <thead nz-thead>
+                <tr>
+                  <th nz-th><span>基金</span></th>
+                  <th nz-th><span>单位净值</span></th>
+                  <th nz-th><span>累计净值</span></th>
+                  <th nz-th><span>净值日期</span></th>
+                  <th nz-th><span>成立日期</span></th>
+                  <th nz-th><span>近一年收益率</span></th>
+                  <th nz-th><span>成立以来收益率</span></th>
+                  <th nz-th><span>操作</span></th>
+                </tr>
+              </thead>
+              <tbody nz-tbody>
+                <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+                  <td nz-td>{{data.data}}</td>
+                  <td nz-td>10</td>
+                  <td nz-td>10</td>
+                  <td nz-td>10</td>
+                  <td nz-td>10</td>
+                  <td nz-td>10</td>
+                  <td nz-td>10</td>
+                  <td nz-td>learn more</td>
+                </tr>
+              </tbody>
+            </nz-table>
+        </div>
+        <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+        </div>
+      </div>
+    </div>
+    <div class="f-left">
+        <ul class="f-left-menu" nz-menu [nzMode]="'vertical'">
+          <li nz-menu-item>
+            <a (click)="scorllById('reco')"><i class="anticon anticon-appstore"></i>推荐产品</a>
+          </li>
+          <li nz-menu-item>
+            <a (click)="scorllById('soon')"><i class="anticon anticon-appstore"></i>即将上线</a>
+          </li>
+          <li nz-menu-item>
+            <a (click)="scorllById('lv')"><i class="anticon anticon-appstore"></i>LV绿色产业基金</a>
+          </li>
+        </ul>
+    </div>
+    <div class="f-right"></div>
+</div>

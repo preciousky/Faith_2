@@ -1,0 +1,32 @@
+:host ::ng-deep .logo {
+  width: 100px;
+  height: 31px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+.ant-layout-header {
+  background-color: #fff;
+}
+.f-head-menu {
+  line-height: 64px;
+  font-size: 14px;
+}
+.f-head-form {
+  float: right;
+  margin-top: -64px;
+}
+.f-head-login {
+  margin-left: 120px;
+  cursor: pointer;
+  // color: #4198e5;
+  &:hover {
+    text-decoration: underline;
+    color: #4198e5;
+  }
+  .anticon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+}

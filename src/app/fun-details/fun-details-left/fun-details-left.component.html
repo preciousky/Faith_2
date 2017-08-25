@@ -1,0 +1,20 @@
+<nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+  <nz-tab>
+    <ng-template #nzTabHeading>
+      实时估值
+    </ng-template>
+    <echart style="width:500px;height: 400px;" [chartInfo]="pieChart"></echart>
+  </nz-tab>
+  <nz-tab>
+    <ng-template #nzTabHeading>
+      重仓持股
+    </ng-template>
+    <div #holding></div>
+  </nz-tab>
+  <nz-tab>
+    <ng-template #nzTabHeading>
+      历史净值
+    </ng-template>
+    <div #history></div>
+  </nz-tab>
+</nz-tabset>
