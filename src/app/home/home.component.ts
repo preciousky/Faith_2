@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+interface ShowCard {
+  name: String;
+  id: number;
+  src: String;
+  info: String;
+}
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
@@ -7,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   picList: Array<Object>;
-  fCardList: Array<Object>;
+  fCardList: Array<ShowCard>;
   count: Array<any>;
   constructor() {
     this.picList = [
@@ -26,6 +33,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getRecoFund() {
+    // set fCardList
   }
 
 }

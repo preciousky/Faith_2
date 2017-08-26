@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FunEssayService } from './fun-essay.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 
 interface Essay {
@@ -16,14 +17,19 @@ interface Essay {
 })
 export class FunEssayComponent implements OnInit {
   essay: Essay;
-  @Input() essayId: number;
+  essayId;
   constructor(
-    public FunEssayService: FunEssayService
+    public FunEssayService: FunEssayService,
+    private route: ActivatedRoute
   ) {
     this.essay = {};
   }
   ngOnInit() {
-    this._init();
+    this.route.params.subscribe(params => {
+      this.essayId = params['_id'];
+    });
+    this._init(this.essayId);
+    console.log(this.essayId);
   }
 
   _init(_id?: number): void {

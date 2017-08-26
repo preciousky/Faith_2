@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FunDetailsLeftComponent } from './fun-details-left.component';
+import { FunDetailsMainComponent } from './fun-details-main.component';
 
-describe('FunDetailsLeftComponent', () => {
-  let component: FunDetailsLeftComponent;
-  let fixture: ComponentFixture<FunDetailsLeftComponent>;
+describe('FunDetailsMainComponent', () => {
+  let component: FunDetailsMainComponent;
+  let fixture: ComponentFixture<FunDetailsMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FunDetailsLeftComponent ]
+      declarations: [ FunDetailsMainComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FunDetailsLeftComponent);
+    fixture = TestBed.createComponent(FunDetailsMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

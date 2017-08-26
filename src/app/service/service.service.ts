@@ -16,5 +16,4 @@ export class ServiceService {
   public vaildLoginHttp(data: LoginData) {
     return this.http.get(this.vaildLoginUrl);
   }
-
 }

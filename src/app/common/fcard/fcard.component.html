@@ -7,7 +7,7 @@
         </div>
         <div class="f-card-li-msg">
           <h3>{{card.info ? card.info : '暂无详情'}}</h3>
-          <p (click)="goDetails()">{{card.name}}</p>
+          <p (click)="goDetails(card.id)">{{card.name}}</p>
         </div>
       </ng-template>
     </nz-card>

@@ -1,0 +1,26 @@
+<div nz-row>
+  <div nz-col [nzSpan]="12" class="details-card">
+<nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+  <nz-tab>
+    <ng-template #nzTabHeading>
+      实时估值
+    </ng-template>
+    <echart style="width:550px;height: 300px;" [chartInfo]="netValueLine"></echart>
+  </nz-tab>
+  <nz-tab>
+    <ng-template #nzTabHeading>
+      重仓持股
+    </ng-template>
+  </nz-tab>
+  <ng-template #nzTabBarExtraContent>
+    <button nz-button class="myButton">历史净值</button>
+  </ng-template>
+</nz-tabset>
+  </div>
+  <div nz-col [nzSpan]="12"  class="details-card">
+      <h2 class="fundName">{{fund.name}}</h2>
+  </div>
+</div>
+<div>
+  123456789
+</div>

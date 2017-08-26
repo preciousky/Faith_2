@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -27,6 +26,7 @@ import { FunEssayComponent } from './fun-essay/fun-essay.component';
 import { FunEssayService } from './fun-essay/fun-essay.service';
 import { ServiceService } from './service/service.service';
 import { EchartDirective } from './directive/echart/echart.directive';
+import {HttpPostService} from './service/http-post.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { EchartDirective } from './directive/echart/echart.directive';
     FunNewComponent,
     FunGreenComponent,
     FunToolComponent,
-    FunEssayComponent,
+    FunEssayComponent
   ],
   entryComponents: [
     LoginModalComponent,
@@ -59,7 +59,7 @@ import { EchartDirective } from './directive/echart/echart.directive';
     NgZorroAntdModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [FunEssayService, ServiceService],
+  providers: [FunEssayService, ServiceService, HttpPostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

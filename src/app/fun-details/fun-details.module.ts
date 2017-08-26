@@ -6,21 +6,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FunDetailsComponent } from './fun-details.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FunDetailsRoute } from './fun-details.routing';
-import { FunDetailsLeftComponent } from './fun-details-left/fun-details-left.component';
 import { EchartDirective } from '../directive/echart/echart.directive';
+import { FunDetailsMainComponent } from './fun-details-main/fun-details-main.component';
+import {HttpPostService} from '../service/http-post.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     FunDetailsComponent,
-    FunDetailsLeftComponent,
-    EchartDirective
+    EchartDirective,
+    FunDetailsMainComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild(FunDetailsRoute),
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    HttpModule
   ],
+  providers: [
+    HttpPostService
+  ]
 })
 export class FunDetailsModule { }
