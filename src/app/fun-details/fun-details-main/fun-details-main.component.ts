@@ -18,61 +18,6 @@ interface ShowFundDetails {
 export class FunDetailsMainComponent implements OnInit {
   fund: ShowFundDetails;
   fundId: number;
-  pieChart = {
-    theme: '',
-    event: [
-      {
-        type: 'click',
-        cb: function (res) {
-          console.log(res);
-        }
-      }
-    ],
-    title: {
-      text: 'NiceFish访问用户地区分布',
-      subtext: '纯属虚构',
-      x: 'center'
-    },
-    tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)'
-    },
-    legend: {
-      orient: 'vertical',
-      left: 'left',
-      data: ['深圳', '北京', '广州', '上海', '长沙']
-    },
-    series: [{
-      name: '访问来源',
-      type: 'pie',
-      startAngle: -180,
-      radius: '55%',
-      center: ['50%', '60%'],
-      data: [{
-        value: 3350,
-        name: '深圳'
-      }, {
-        value: 310,
-        name: '北京'
-      }, {
-        value: 234,
-        name: '广州'
-      }, {
-        value: 135,
-        name: '上海'
-      }, {
-        value: 1548,
-        name: '长沙'
-      }],
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-      }
-    }]
-  };
   netValueLine = {
     title : {
       text: '基金净值走势'
@@ -102,6 +47,73 @@ export class FunDetailsMainComponent implements OnInit {
         name: '最高气温',
         type: 'line',
         data: [11, 11, 15, 13, 12, 13, 10],
+      }
+    ]
+  };
+  belongings = {
+    title: {
+      text: '资产配置',
+      left: '50%',
+      textAlign: 'center',
+    },
+    series: [
+
+      {
+        label: {
+          normal: {
+            show: true,
+            position: 'outside',
+            formatter: '{b} : {c} ({d}%)'
+
+          }
+        },
+
+        type:'pie',
+        radius: ['20%', '55%'],
+
+        data:[
+          {value:335, name:'直达'},
+          {value:310, name:'邮件营销'},
+          {value:234, name:'联盟广告'},
+          {value:135, name:'视频广告'},
+          {value:1048, name:'百度'},
+          {value:251, name:'谷歌'},
+          {value:147, name:'必应'},
+          {value:102, name:'其他'}
+        ]
+      }
+    ]
+  };
+  productions = {
+    title: {
+      text: '产业配置',
+      left: '50%',
+      textAlign: 'center',
+    },
+    series: [
+
+      {
+        label: {
+          normal: {
+            show: true,
+            position: 'outside',
+            formatter: '{b} : {c} ({d}%)'
+
+          }
+        },
+        type:'pie',
+        radius: ['20%', '55%'],
+
+        data:[
+          {value:335, name:'直达'},
+          {value:310, name:'邮件营销'},
+          {value:234, name:'联盟广告'},
+          {value:135, name:'视频广告'},
+          {value:1048, name:'百度'},
+          {value:251, name:'谷歌'},
+          {value:147, name:'必应'},
+          {value:102, name:'其他'}
+        ]
       }
     ]
   };

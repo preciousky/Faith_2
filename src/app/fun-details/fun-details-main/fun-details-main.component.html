@@ -22,5 +22,55 @@
   </div>
 </div>
 <div>
-  123456789
+  <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        基金档案
+      </ng-template>
+      <div nz-row>
+        <div nz-col [nzSpan]="12">
+          <echart style="width:500px;height: 300px;" [chartInfo]="belongings"></echart>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <echart style="width:500px;height: 300px;" [chartInfo]="productions"></echart>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        概况
+      </ng-template>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        费率
+      </ng-template>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        财报
+      </ng-template>
+
+      <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+        <nz-tab>
+          <ng-template #nzTabHeading>
+            财务指标
+          </ng-template>
+
+        </nz-tab>
+        <nz-tab>
+          <ng-template #nzTabHeading>
+            资产和负债
+          </ng-template>
+
+        </nz-tab>
+        <nz-tab>
+          <ng-template #nzTabHeading>
+            利润分配
+          </ng-template>
+
+        </nz-tab>
+      </nz-tabset>
+    </nz-tab>
+  </nz-tabset>
 </div>
