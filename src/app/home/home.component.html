@@ -1,4 +1,4 @@
-<nz-carousel [nzAutoPlay]="true">
+<nz-carousel [nzAutoPlay]="true" style = "height: 500px">
   <div nz-carousel-content *ngFor="let pic of picList" [ngStyle]="{'background-image': 'url(' + pic.src + ')'}">
       <div>{{pic.title}}</div>
   </div>
