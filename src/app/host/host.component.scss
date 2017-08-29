@@ -28,15 +28,6 @@
 .host-content{
   margin: 15px 55px;
 }
-#settingBtn{
-  height: 35px;
-  width: 35px;
-  margin-top: 2px;
-  font-size: 27px;
-  padding: 0;
-  border-radius: 50%;
-  padding-left: 2.5px;
-}
 .host-parts{
   padding: 20px 30px;
   border-top: solid hsla(0, 0%, 83%, 1) 1px;
@@ -51,12 +42,12 @@ thead{
   background-color: hsla(245, 48%, 92%, 1);
   height: 36px;
 }
-.heavyRed{
+.heavyFont{
   margin: 10px;
   font-size: 37px;
   font-weight: 900;
-  color: orangered;
-  text-shadow: 0px 0px 2px red;
+  color: #ffce3d;
+  text-shadow: 0px 0px 2px #d17fe0;
 }
 .subParts {
   height: 160px;

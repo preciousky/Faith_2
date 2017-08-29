@@ -8,7 +8,8 @@ import {
 import { NzModalService } from 'ng-zorro-antd';
 
 import { LoginModalComponent } from '../login-modal/login-modal.component';
-import {assertNotNull} from "@angular/compiler/src/output/output_ast";
+import {assertNotNull} from '@angular/compiler/src/output/output_ast';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'common-nav',
@@ -22,6 +23,7 @@ export class NavComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private modalService: NzModalService,
+    public route: Router
   ) { }
 
   ngOnInit() {
@@ -55,5 +57,9 @@ export class NavComponent implements OnInit {
       }
 
     });
+  }
+
+  toHost() {
+    this.route.navigate(['/host', this.userId]);
   }
 }

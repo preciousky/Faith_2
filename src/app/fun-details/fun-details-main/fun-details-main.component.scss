@@ -16,21 +16,21 @@
   color: black;
   font-weight: 100;
 }
-.heavyRed{
+.heavyFont{
   margin: 10px;
   font-size: 37px;
   font-weight: 900;
-  color: orangered;
-  text-shadow: 0px 0px 2px red;
+  color: #ffce3d;
+  text-shadow: 0px 0px 2px #d17fe0;
 }
 #tobuy{
-  width: 230px;
+  width: 210px;
   height: 35px;
   font-weight: 700;
   font-size: 17px;
-  margin: 5px 0;
   background-color: indianred;
   border: rgba(255, 0, 0, 0.46) solid 0.5px;
+  margin: 5px 10px;
 }
 #details-card-bottom{
   margin-top:20px;

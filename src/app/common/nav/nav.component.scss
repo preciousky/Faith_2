@@ -10,15 +10,15 @@
   background-color: #fff;
 }
 .f-head-menu {
-  line-height: 64px;
+  line-height: 63px;
   font-size: 14px;
 }
 .f-head-form {
   float: right;
-  margin-top: -64px;
+  margin-top: -63px;
 }
 .f-head-login {
-  margin-left: 120px;
+  margin-left: 20px;
   cursor: pointer;
   // color: #4198e5;
   &:hover {
@@ -29,4 +29,26 @@
     font-size: 20px;
     margin-right: 5px;
   }
+}
+.ant-form-inline .ant-form-item {
+  display: inline-block;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+#loginIcon {
+  font-size: 27px;
+  margin-right: 5px;
+  font-weight: 900;
+  color: blue;
+}
+#loginDiv {
+  padding-top: 7px;
+  margin-left: 59px;
+  height: 28px;
+  &:hover {
+    text-shadow: 0px 0px 2px blue;
+  }
+}
+#hostDiv{
+  margin-left:20px;
 }

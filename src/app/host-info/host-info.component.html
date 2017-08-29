@@ -1,48 +1,135 @@
 <div class="f-container">
-  <div class="f-main">
-    <div class = "host-info-content">
-<div class="f-main-title" >我的首页</div>
+<div class="f-main">
+<div class = "host-info-content">
+
+<div nz-row>
+        <div nz-col [nzSpan]="4">
+          <div class="f-main-title" >账户信息</div>
+        </div>
+        <div nz-col [nzSpan]="3" class = 'tips' style="color:green" *ngIf="user.isAuth === true">
+          <i class="anticon anticon-check"></i>
+          <span>已实名</span>
+        </div>
+        <div nz-col [nzSpan]="3" class = 'tips'  style="color:orangered" *ngIf="user.isAuth === false" >
+            <i class="anticon anticon-question" ></i>
+            <span>未实名</span>
+        </div>
+</div>
+
 <div  class = "host-parts">
 
-  <div nz-row class = 'myrow'>
-    <div nz-col [nzSpan]="1" >
-    <button  class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'" (click) = 'userInputState.username = "in"; changed = true'>
-      <i class="anticon anticon-setting"></i>
-    </button>
+<div nz-row >
+  <div nz-col [nzSpan]="4" >
+    <div class="f-sub-title"> 常规信息</div>
   </div>
-    <div nz-col [nzSpan]="6"  >
-      <span class = 'key'>用户名：</span><span class = 'value'>{{user.username}}</span>
-    </div>
+  <div nz-col [nzSpan]="1" >
+    <button class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'"
+              (click) ='
+              userInputState.phone = "in";
+              userInputState.address = "in";
+              userInputState.email= "in";
+              changed = true;'>
+  <i class="anticon anticon-setting"></i>
+  </button>
+  </div>
+</div>
 
-    <div nz-col [nzSpan]="6" >
-      <nz-input [@flyInOut]="userInputState.username" [nzPlaceHolder]="'请输入新的用户名'" (keyup)="newUser.username = $event.target.value"></nz-input>
+<div class="host-info-parts">
+
+  <div nz-row class = 'myrow'>
+    <div nz-col [nzSpan]="6"  [nzOffset]="'1'" >
+      <span class = 'key'>用户名：</span><div class = 'value'>{{user.username}}</div>
     </div>
   </div >
 
   <div nz-row class = 'myrow'>
-    <div nz-col [nzSpan]="1" >
-      <button class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'" (click) = 'userInputState.email = "in";changed = true'>
-        <i class="anticon anticon-setting"></i>
-      </button>
-    </div>
-    <div nz-col [nzSpan]="6">
-      <span class = 'key'>邮箱：</span><span class = 'value'>{{user.email}}</span>
+    <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+      <span class = 'key'>邮箱：</span><div class = 'value'>{{user.email}}</div>
     </div>
     <div nz-col [nzSpan]="6" >
       <nz-input [@flyInOut]="userInputState.email" [nzPlaceHolder]="'请输入新的邮箱'" (keyup)="newUser.email = $event.target.value"></nz-input>
     </div>
   </div >
 
+  <div nz-row class = 'myrow'>
+    <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+      <span class = 'key'>手机：</span><div class = 'value'>{{user.phone}}</div>
+    </div>
+    <div nz-col [nzSpan]="6" >
+      <nz-input [@flyInOut]="userInputState.phone" [nzPlaceHolder]="'请输入新的手机号'" (keyup)="newUser.phone = $event.target.value"></nz-input>
+    </div>
+  </div >
 
-</div>
-    <div nz-row>
-      <div nz-col [nzSpan]="4" [nzOffset]="'4'">
-    <button nz-button [nzType]="'primary'" *ngIf="changed === true " (click) = "confirm('1')">确认修改以上信息</button>
-      </div>
-      <div nz-col [nzSpan]="4">
-    <button nz-button *ngIf="changed === true " (click) = "confirm('-1')">放弃修改</button>
-      </div>
+  <div nz-row class = 'myrow'>
+    <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+      <span class = 'key'>通信地址：</span><div class = 'value'>{{user.address}}</div>
+    </div>
+    <div nz-col [nzSpan]="6" >
+      <nz-input [@flyInOut]="userInputState.address" [nzPlaceHolder]="'请输入新的通信地址'" (keyup)="newUser.address = $event.target.value"></nz-input>
+    </div>
+  </div >
+
+  <div style=" height: 60px; padding-top: 15px;">
+   <div nz-row>
+    <div nz-col [nzSpan]="4"   [nzOffset]="'3'">
+      <button nz-button [nzType]="'primary'" *ngIf="changed === true " (click) = "confirm('1')">确认修改</button>
+    </div>
+    <div nz-col [nzSpan]="4">
+      <button nz-button *ngIf="changed === true " (click) = "confirm('-1')">放弃修改</button>
     </div>
   </div>
+  </div>
+</div>
+
+  <div class="f-sub-title">实名信息</div>
+  <div class="host-info-parts">
+  <div *ngIf="user.isAuth === true">
+    <div nz-row class = 'myrow'>
+      <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+        <span class = 'key'>真实姓名：</span><div class = 'value'>{{user.realname}}</div>
+      </div>
+    </div >
+    <div nz-row class = 'myrow'>
+      <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+        <span class = 'key'>开户银行：</span><div class = 'value'>{{user.bankname}}</div>
+      </div>
+    </div >
+    <div nz-row class = 'myrow'>
+      <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+        <span class = 'key'>开户地：</span><div class = 'value'>{{user.bankarea}}</div>
+      </div>
+    </div >
+    <div nz-row class = 'myrow'>
+      <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+        <span class = 'key'>银行卡号：</span><div class = 'value'>{{user.bankcardNo}}</div>
+      </div>
+    </div >
+    <div style=" height: 60px; padding-top: 15px;">
+    <div nz-row>
+
+      <div nz-col [nzSpan]="5"   [nzOffset]="'3'">
+        <button nz-button [nzType]="'primary'" class="bottomBtn">修改银行绑定信息</button>
+      </div>
+
+      <div nz-col [nzSpan]="4">
+        <button nz-button [nzType]="'primary'" class="bottomBtn">修改账户密码</button>
+      </div>
+
+      <div nz-col [nzSpan]="4">
+        <button nz-button [nzType]="'primary'" class="bottomBtn">修改交易密码</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div *ngIf="user.isAuth === false"  style="padding-left:40px">
+    <p>
+      您还没有实名验证，立即<a (click)="toCertificate()" >实名验证</a>，体验平台带给您的快捷。
+    </p>
+  </div>
+</div>
+</div>
+
+
+</div>
 </div>
 </div>

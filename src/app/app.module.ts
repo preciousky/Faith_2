@@ -33,6 +33,8 @@ import { HostComponent } from './host/host.component';
 import { FscardComponent } from './common/fscard/fscard.component';
 import { BackTopComponent } from './common/back-top/back-top.component';
 import { HostInfoComponent } from './host-info/host-info.component';
+import { CertificationComponent } from './certification/certification.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { HostInfoComponent } from './host-info/host-info.component';
     HostComponent,
     FscardComponent,
     BackTopComponent,
-    HostInfoComponent
+    HostInfoComponent,
+    CertificationComponent,
+    QuestionnaireComponent
   ],
   entryComponents: [
     LoginModalComponent,

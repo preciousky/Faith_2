@@ -5,6 +5,8 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
+import {HttpPostService} from '../service/http-post.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'reg',
@@ -13,14 +15,15 @@ import {
 })
 export class RegComponent implements OnInit {
   RegForm: FormGroup;
-
+  userId;
   _submitForm() {
     for (const i in this.RegForm.controls) {
       this.RegForm.controls[ i ].markAsDirty();
     }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public httpPostservice: HttpPostService, public router: Router) {
+
   }
 
   // updateConfirmValidator() {
@@ -43,6 +46,7 @@ export class RegComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userId = -1;
     this.RegForm = this.fb.group({
       phone          : [ null, [ Validators.required ] ],
       password         : [ null, [ Validators.required ] ],
@@ -52,6 +56,16 @@ export class RegComponent implements OnInit {
       captcha          : [ null ],
       agree            : [ false ]
     });
+
+
+    }
+    toReg() {
+      if (this.RegForm.invalid === false) {
+        // TODO fetch and deal with the data from view
+        // TODO and set this.userId by the response data
+
+        this.router.navigate(['/questionnaire', this.userId ]);
+      }
   }
 
   getFormControl(name) {

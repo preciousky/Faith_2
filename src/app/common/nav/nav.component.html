@@ -61,15 +61,17 @@
         </nz-input>
       </div>
     </div>
+    <div nz-form-item style ="padding-top:3px" >
     <button nz-button [nzSize]="'large'">
         <i class="anticon anticon-search"></i>
     </button>
-    <div  *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
-        <span><i class="anticon anticon-user"></i>Login</span>
     </div>
-    <div  *ngIf="userId != -1" class="f-head-login">
-        <span>welcome {{username}}!</span>
-      <button nz-button [nzType]="'primary'" (click) = "userId = -1" >注销</button>
+    <div  id="loginDiv" *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
+      <span><i id = "loginIcon" class="anticon anticon-login"></i></span>
+    </div>
+    <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
+        <span><button [nzShape]="'circle'" [nzType]="'primary'" nz-button (click) = "userId = -1" (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
+      <button nz-button (click) = "userId = -1" [nzSize]="'small'">注销</button>
     </div>
   </form>
 </nz-header>
