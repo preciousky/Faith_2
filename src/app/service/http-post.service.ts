@@ -12,4 +12,7 @@ export class HttpPostService {
     console.log(body);
     return this.http.post(url, body, options);
   }
+  getReponsTestDataByGet(url: string) {
+    return this.http.get(url);
+  }
 }

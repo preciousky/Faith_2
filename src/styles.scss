@@ -47,4 +47,16 @@ html, body {
     width: 150px;
     margin-left: -150px;
   }
+  &-note {
+    border-left: 8px solid blue;
+    background-color: #cfcfcf;
+    margin: 10px 30px;
+  }
+}
+.f-sub-title{
+  padding-left: 5px;
+  border-left: 3px solid #54a0de;
+  margin: 20px;
+  font-size: 19px;
+  font-weight: 300;
 }

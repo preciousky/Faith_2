@@ -10,12 +10,19 @@ import { EchartDirective } from '../directive/echart/echart.directive';
 import { FunDetailsMainComponent } from './fun-details-main/fun-details-main.component';
 import {HttpPostService} from '../service/http-post.service';
 import { HttpModule } from '@angular/http';
+import { EchartsService } from '../service/echarts.service';
+import { FunDetailsGeneralComponent } from './fun-details-general/fun-details-general.component';
+import { FunDetailsExpenseComponent } from './fun-details-expense/fun-details-expense.component';
+import { FunDetailsFormsComponent } from './fun-details-forms/fun-details-forms.component';
 
 @NgModule({
   declarations: [
     FunDetailsComponent,
     EchartDirective,
-    FunDetailsMainComponent
+    FunDetailsMainComponent,
+    FunDetailsGeneralComponent,
+    FunDetailsExpenseComponent,
+    FunDetailsFormsComponent
   ],
   imports: [
     FormsModule,
@@ -26,7 +33,8 @@ import { HttpModule } from '@angular/http';
     HttpModule
   ],
   providers: [
-    HttpPostService
+    HttpPostService,
+    EchartsService
   ]
 })
 export class FunDetailsModule { }

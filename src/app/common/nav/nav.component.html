@@ -64,8 +64,12 @@
     <button nz-button [nzSize]="'large'">
         <i class="anticon anticon-search"></i>
     </button>
-    <div nz-form-item class="f-head-login" (click)="showLoginModal()">
+    <div  *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
         <span><i class="anticon anticon-user"></i>Login</span>
+    </div>
+    <div  *ngIf="userId != -1" class="f-head-login">
+        <span>welcome {{username}}!</span>
+      <button nz-button [nzType]="'primary'" (click) = "userId = -1" >注销</button>
     </div>
   </form>
 </nz-header>

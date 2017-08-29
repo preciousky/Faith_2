@@ -6,6 +6,9 @@ import { FunNewComponent } from './fun-new/fun-new.component';
 import { FunGreenComponent } from './fun-green/fun-green.component';
 import { FunToolComponent } from './fun-tool/fun-tool.component';
 import { FunEssayComponent } from './fun-essay/fun-essay.component';
+import {RegComponent} from './reg/reg.component';
+import {HostComponent} from './host/host.component';
+import { HostInfoComponent } from './host-info/host-info.component';
 
 const _HomeModule = 'app/home/home.module#HomeModule';
 const _FunDetailsModule = 'app/fun-details/fun-details.module#FunDetailsModule';
@@ -25,6 +28,12 @@ const routes: Routes = [{
   }, {
     path: 'funeassay/:_id',
     component: FunEssayComponent
+  }, { path: 'reg',
+    component: RegComponent
+  },  { path: 'host/:_userId',
+    component: HostComponent
+  },  { path: 'host-info',
+    component: HostInfoComponent
   },  {
   path: 'details/:_fundId',
   loadChildren: _FunDetailsModule

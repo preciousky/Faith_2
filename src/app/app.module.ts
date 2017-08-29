@@ -27,6 +27,12 @@ import { FunEssayService } from './fun-essay/fun-essay.service';
 import { ServiceService } from './service/service.service';
 import { EchartDirective } from './directive/echart/echart.directive';
 import {HttpPostService} from './service/http-post.service';
+import {EchartsService} from './service/echarts.service';
+import { RegComponent } from './reg/reg.component';
+import { HostComponent } from './host/host.component';
+import { FscardComponent } from './common/fscard/fscard.component';
+import { BackTopComponent } from './common/back-top/back-top.component';
+import { HostInfoComponent } from './host-info/host-info.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,12 @@ import {HttpPostService} from './service/http-post.service';
     FunNewComponent,
     FunGreenComponent,
     FunToolComponent,
-    FunEssayComponent
+    FunEssayComponent,
+    RegComponent,
+    HostComponent,
+    FscardComponent,
+    BackTopComponent,
+    HostInfoComponent
   ],
   entryComponents: [
     LoginModalComponent,
@@ -59,7 +70,7 @@ import {HttpPostService} from './service/http-post.service';
     NgZorroAntdModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [FunEssayService, ServiceService, HttpPostService],
+  providers: [FunEssayService, ServiceService, HttpPostService, EchartsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

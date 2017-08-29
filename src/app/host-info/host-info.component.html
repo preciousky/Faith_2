@@ -1,0 +1,48 @@
+<div class="f-container">
+  <div class="f-main">
+    <div class = "host-info-content">
+<div class="f-main-title" >我的首页</div>
+<div  class = "host-parts">
+
+  <div nz-row class = 'myrow'>
+    <div nz-col [nzSpan]="1" >
+    <button  class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'" (click) = 'userInputState.username = "in"; changed = true'>
+      <i class="anticon anticon-setting"></i>
+    </button>
+  </div>
+    <div nz-col [nzSpan]="6"  >
+      <span class = 'key'>用户名：</span><span class = 'value'>{{user.username}}</span>
+    </div>
+
+    <div nz-col [nzSpan]="6" >
+      <nz-input [@flyInOut]="userInputState.username" [nzPlaceHolder]="'请输入新的用户名'" (keyup)="newUser.username = $event.target.value"></nz-input>
+    </div>
+  </div >
+
+  <div nz-row class = 'myrow'>
+    <div nz-col [nzSpan]="1" >
+      <button class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'" (click) = 'userInputState.email = "in";changed = true'>
+        <i class="anticon anticon-setting"></i>
+      </button>
+    </div>
+    <div nz-col [nzSpan]="6">
+      <span class = 'key'>邮箱：</span><span class = 'value'>{{user.email}}</span>
+    </div>
+    <div nz-col [nzSpan]="6" >
+      <nz-input [@flyInOut]="userInputState.email" [nzPlaceHolder]="'请输入新的邮箱'" (keyup)="newUser.email = $event.target.value"></nz-input>
+    </div>
+  </div >
+
+
+</div>
+    <div nz-row>
+      <div nz-col [nzSpan]="4" [nzOffset]="'4'">
+    <button nz-button [nzType]="'primary'" *ngIf="changed === true " (click) = "confirm('1')">确认修改以上信息</button>
+      </div>
+      <div nz-col [nzSpan]="4">
+    <button nz-button *ngIf="changed === true " (click) = "confirm('-1')">放弃修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
