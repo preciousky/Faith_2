@@ -1,5 +1,7 @@
 <nz-header>
-  <div class="logo" routerLink="/"></div>
+  <div class="logo" routerLink="/">
+    <img style="height: 62px;" src="./assets/pic/logo.png">
+  </div>
   <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="f-head-menu">
     <li nz-submenu>
       <span title><i class="anticon anticon-mail"></i>FOF基金产品</span>
@@ -71,7 +73,7 @@
     </div>
     <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
         <span><button [nzShape]="'circle'" [nzType]="'primary'" nz-button (click) = "userId = -1" (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
-      <button nz-button (click) = "userId = -1" [nzSize]="'small'">注销</button>
+      <button nz-button (click) = "userId = -1" [nzSize]="'small'" style="background-color: transparent">注销</button>
     </div>
   </form>
 </nz-header>
