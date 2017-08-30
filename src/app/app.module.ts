@@ -35,6 +35,8 @@ import { BackTopComponent } from './common/back-top/back-top.component';
 import { HostInfoComponent } from './host-info/host-info.component';
 import { CertificationComponent } from './certification/certification.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { DeclarationComponent } from './common/declaration/declaration.component';
+import { ToBuyComponent } from './to-buy/to-buy.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
     BackTopComponent,
     HostInfoComponent,
     CertificationComponent,
-    QuestionnaireComponent
+    QuestionnaireComponent,
+    DeclarationComponent,
+    ToBuyComponent
   ],
   entryComponents: [
     LoginModalComponent,

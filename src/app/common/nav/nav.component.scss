@@ -7,13 +7,15 @@
   float: left;
 }
 .ant-layout-header {
-  background-color: hsl(0, 0%, 75%);
+  background-color: hsl(0, 0%, 100%);
+  border-bottom: 1px #888888;
 }
 .f-head-menu {
   line-height: 63px;
   font-size: 14px;
   font-weight: 900;
-  background-color: hsl(0, 0%, 75%);
+  background-color: hsl(0, 0%, 100%);
+  border-bottom: 1px #888888;
 }
 .f-head-form {
   float: right;
@@ -48,7 +50,7 @@
   margin-left: 59px;
   height: 28px;
   &:hover {
-    text-shadow: 0px 0px 2px blue;
+    text-shadow: 0 0 1px blue;
   }
 }
 #hostDiv{

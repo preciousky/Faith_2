@@ -3,6 +3,8 @@ import {
   FormBuilder,
   FormGroup
 } from '@angular/forms';
+import {Router} from '@angular/router';
+import {HttpPostService} from '../service/http-post.service';
 
 @Component({
   selector: 'questionnaire',
@@ -11,7 +13,8 @@ import {
 })
 export class QuestionnaireComponent implements OnInit {
   questionnaireForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  userId;
+  constructor(private fb: FormBuilder, public router: Router, public httpPostService: HttpPostService) {
   }
 
   ngOnInit() {
@@ -35,5 +38,10 @@ export class QuestionnaireComponent implements OnInit {
       q17 : [ 1 ],
       q18 : [ 1 ],
     });
+  }
+
+  finishQuestions() {
+    alert('注册结束\n你可以登入平台')
+    this.router.navigate(['/']);
   }
 }

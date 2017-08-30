@@ -6,7 +6,7 @@
     <div class = "heavyFont">{{ fundDetails.netvalues[3] }}￥</div>
     <h2 class = "infoTitle">涨跌幅</h2>
     <div  class = "heavyFont">{{ fundDetails.raise_percentages[3] }}%</div>
-    <button nz-button [nzType]="'primary'" id = "tobuy">
+    <button nz-button [nzType]="'primary'" id = "tobuy" (click)="toBuy()">
       <span>立即购买</span>
     </button>
 </div>
@@ -25,24 +25,31 @@
           <ng-template #nzTabHeading>
             历史净值
           </ng-template>
-          <div style="width: 590px; height: 360px;">
-          <nz-table class="hostTable" #nzTable [nzPageSize]="10" style="border-radius: 0">
-          <thead>
-          <tr style = "background-color: hsl(0, 0%, 93%); height: 36px;">
-            <th><span>日期</span></th>
-            <th><span>净值（元）</span></th>
-          </tr>
-          </thead>
-          <tbody nz-tbody>
-          <td>
-            <tr *ngFor="let data of fundDetails.dates">{{data}}</tr>
-          </td>
-          <td>
-            <tr *ngFor="let data of fundDetails.netvalues">{{data}}</tr>
-          </td>
-          </tbody>
-        </nz-table>
+          <div style="height: 360px;padding: 24px;">
+          <table class="log">
+
+            <thead>
+            <tr>
+              <th><span>日期</span></th>
+              <th><span>净值（元）</span></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <td>
+              <tr *ngFor="let data of fundDetails.dates">{{data}}</tr>
+            </td>
+
+            <td>
+              <tr *ngFor="let data of fundDetails.netvalues">{{data}}</tr>
+            </td>
+
+            </tbody>
+
+          </table>
           </div>
+
+
         </nz-tab>
       </nz-tabset>
     </div>

@@ -9,12 +9,12 @@
         </div>
       </div>
       <div nz-col [nzSpan]="3">
-        <button nz-button [nzSize]="'small'" (click)="toHostInfo()" style="margin-top: 10px;border: solid 1px rgba(134, 134, 241, 0.44);">
+        <button nz-button [nzSize]="'small'" (click)="toHostInfo()" style="margin-top: 10px;border: solid 1px rgba(134, 134, 241, 0.44);padding-bottom: 1px;">
           <i class="anticon anticon-setting"></i><span>设置</span>
         </button>
       </div>
       <div nz-col [nzSpan]="6" >
-        <button (click)="isAuth=!isAuth">
+        <button (click)="user.isAuth=!user.isAuth">
           test isAuth
         </button>
       </div>
@@ -22,16 +22,16 @@
       <div class="f-sub-title">总资产</div>
       <div  class = "host-parts">
         <div nz-row >
-          <div *ngIf="isAuth" nz-col [nzSpan]="6" class="subParts">
+          <div *ngIf="user.isAuth" nz-col [nzSpan]="6" class="subParts">
             <h2>总资产</h2>
             <p class="heavyFont">0.00</p>
             <p>当前总收益为0.00</p>
           </div>
-          <div *ngIf="isAuth" nz-col [nzSpan]="6" class="subParts">
+          <div *ngIf="user.isAuth" nz-col [nzSpan]="6" class="subParts">
             <h2>基金产品</h2>
             <p class="heavyFont">0.00</p>
           </div>
-          <div *ngIf="!isAuth"nz-col [nzSpan]="12" class="subParts">
+          <div *ngIf="!user.isAuth"nz-col [nzSpan]="12" class="subParts">
             <h2>你还没有实名认证</h2>
             <p>立即实名认证，轻松管理自己的账号资产</p>
             <button nz-button [nzType]="'primary'" (click) = 'toCertificate()'>立即实名认证</button>
@@ -50,23 +50,21 @@
         <nz-table class="hostTable" #nzTable [nzPageSize]="10" style="border-radius: 0">
           <thead>
           <tr style = "background-color: hsl(0, 0%, 93%); height: 36px;">
-            <th>
-            <span>
-              Name
-            </span>
-            </th>
-            <th>
-            <span>
-              Age
-            </span>
-            </th>
-            <th nz-th><span>Address</span></th>
+            <th><span>基金名称</span></th>
+            <th><span>持有份额</span></th>
+            <th><span>可用份额</span></th>
+            <th><span>最新净值</span></th>
+            <th><span>交易卡号</span></th>
+            <th><span>基金状态</span></th>
           </tr>
           </thead>
           <tbody nz-tbody>
           <tr nz-tbody-tr *ngFor="let data of ownedData">
             <td nz-td>{{data.name}}</td>
             <td nz-td>{{data.age}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>{{data.address}}</td>
             <td nz-td>{{data.address}}</td>
           </tr>
           </tbody>
@@ -77,15 +75,23 @@
         <nz-table class="hostTable" #nzTable [nzPageSize]="10" style="border-radius: 0">
           <thead>
           <tr style = "background-color: hsl(0, 0%, 93%); height: 36px;">
-            <th><span>Name</span></th>
-            <th><span>Age</span></th>
-            <th><span>Address</span></th>
+            <th><span>操作日期</span></th>
+            <th><span>操作时间</span></th>
+            <th><span>基金代码</span></th>
+            <th><span>基金名称</span></th>
+            <th><span>交易卡号</span></th>
+            <th><span>操作</span></th>
+            <th><span>成交金额</span></th>
           </tr>
           </thead>
           <tbody nz-tbody>
           <tr nz-tbody-tr *ngFor="let data of tradeData">
             <td nz-td>{{data.name}}</td>
             <td nz-td>{{data.age}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>{{data.address}}</td>
             <td nz-td>{{data.address}}</td>
           </tr>
           </tbody>

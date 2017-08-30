@@ -49,7 +49,7 @@ export class NavComponent implements OnInit {
         console.log('登录成功 nav拿到user_id为' + result['user_id'] + '  username为' + result['username']);
       }else
       if ( result['code'] && result['code'] === -1) {
-        console.log('http失败 nav拿到user_id为' + result['user_id']+ + '  username为' + result['username']);
+        console.log('http失败 nav拿到user_id为' + result['user_id'] + '  username为' + result['username']);
 
         // TODO delete it 模拟登陆成功
         this.userId = 12;
@@ -61,5 +61,10 @@ export class NavComponent implements OnInit {
 
   toHost() {
     this.route.navigate(['/host', this.userId]);
+  }
+
+  tologout() {
+    this.route.navigate(['/']);
+    this.userId = -1;
   }
 }

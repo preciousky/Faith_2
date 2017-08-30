@@ -11,6 +11,8 @@ import { HostComponent } from './host/host.component';
 import { HostInfoComponent } from './host-info/host-info.component';
 import { CertificationComponent } from './certification/certification.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { DeclarationComponent} from './common/declaration/declaration.component';
+import { ToBuyComponent } from './to-buy/to-buy.component';
 
 const _HomeModule = 'app/home/home.module#HomeModule';
 const _FunDetailsModule = 'app/fun-details/fun-details.module#FunDetailsModule';
@@ -34,12 +36,16 @@ const routes: Routes = [{
     component: RegComponent
   },  { path: 'host/:_userId',
     component: HostComponent
-  },  { path: 'host-info',
+  },  { path: 'host-info/:_userId',
     component: HostInfoComponent
   },  { path: 'certification/:_userId',
     component: CertificationComponent
   },  { path: 'questionnaire/:_userId',
     component: QuestionnaireComponent
+  },  { path: 'declaration/:_id',
+    component: DeclarationComponent
+  },  { path: 'toBuy',
+    component: ToBuyComponent
   },  {
   path: 'details/:_fundId',
   loadChildren: _FunDetailsModule

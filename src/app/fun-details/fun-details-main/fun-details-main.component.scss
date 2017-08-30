@@ -36,3 +36,25 @@
   margin-top:20px;
   padding: 20px;
 }
+table.log {
+  border-collapse: collapse;
+  width: 95%;
+  font-size: 14px;
+}
+table.log th {
+  border-width: 1px 0;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #f7f7f7;
+}
+table.log tr {
+  width:100%;
+}
+table.log td {
+  border-width: 1px 0;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #ffffff;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpPostService} from '../../service/http-post.service';
 import {EchartsService} from '../../service/echarts.service';
 
@@ -17,7 +17,7 @@ export class FunDetailsMainComponent implements OnInit {
   belongings;
   productions;
   raisePercentagesLine;
-  constructor(private route: ActivatedRoute, public httpPostService: HttpPostService, public echartsService: EchartsService ) {
+  constructor(public router:Router, private route: ActivatedRoute, public httpPostService: HttpPostService, public echartsService: EchartsService ) {
 
   this.fundDetails = {
       id: -1,
@@ -212,5 +212,8 @@ export class FunDetailsMainComponent implements OnInit {
         ]
       };
     this.echartsService.emitEchart('raisePercentagesLine', this.raisePercentagesLine);
+  }
+  toBuy() {
+    this.router.navigate(['/toBuy', {userId: 1, fundId: 1, fundName: 'testfundname'}]);
   }
 }

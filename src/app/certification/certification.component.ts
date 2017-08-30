@@ -6,7 +6,7 @@ import {
   FormControl
 } from '@angular/forms';
 import {HttpPostService} from '../service/http-post.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'certification',
   templateUrl: './certification.component.html',
@@ -22,7 +22,8 @@ export class CertificationComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, public route: ActivatedRoute, public httpPostService: HttpPostService ) {
+  constructor(public router: Router,
+  private fb: FormBuilder, public route: ActivatedRoute, public httpPostService: HttpPostService ) {
   }
 
   // updateConfirmValidator() {
@@ -70,6 +71,7 @@ export class CertificationComponent implements OnInit {
   }
 
   toCertificate() {
+
     console.log(this.CertificationForm);
     if (this.CertificationForm.invalid === false ) {
       // TODO send the data to server
@@ -87,13 +89,19 @@ export class CertificationComponent implements OnInit {
       // TODO update the url
       this.httpPostService.getReponseData('TODO,seturl', body).subscribe(data => {
         // TODO data.json()
-      }, error => {
+
+      },
+          error => {
         this.httpPostService.getReponsTestDataByGet('mock-data/get-fund-detail-mock.json')
           .subscribe(data => {
             // TODO data.json()
           });
         // alert('http失败,已经使用虚拟数据');
       } );
+      // TODO update it
+      // pretend we certificated successfully
     }
+    alert('pretend to succeed to be certificated')
+    this.router.navigate(['/funlist', 'reco']) ;
   }
 }

@@ -1,0 +1,74 @@
+<div class="f-container">
+  <div class="f-main">
+    <div class="toBuyContent">
+    <nz-steps [(nzCurrent)]="current">
+      <nz-step [nzTitle]="'填写信息'" [nzDescription]="''"></nz-step>
+      <nz-step [nzTitle]="'确认信息'" [nzDescription]="''"></nz-step>
+      <nz-step [nzTitle]="'购买结果'" [nzDescription]="''"></nz-step>
+    </nz-steps>
+    <div class="myStepContent" *ngIf="current === 0">
+      <form nz-form [nzType]="'horizontal'" [formGroup]="toBuyForm">
+
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>基金名称</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <span nz-form-text>{{fundName}}</span>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>购买金额</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <nz-input-number formControlName="input_number" [nzSize]="'large'" [nzStep]="1"  [nzMin]="1"></nz-input-number>
+            <span nz-form-text>元</span>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>预估手续费</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <span nz-form-text>{{fee}}</span>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>支付账户</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <nz-radio-group formControlName="radio_button">
+              <label nz-radio-button [nzValue]="1">
+                <span>储蓄罐</span>
+              </label>
+              <label nz-radio-button [nzValue]="2">
+                <span>银行卡</span>
+              </label>
+            </nz-radio-group>
+          </div>
+        </div>
+        <div nz-form-item nz-row style="margin-bottom:8px;">
+          <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+            <label nz-checkbox formControlName="agree">
+              <span>I have read the <a>agreement</a></span>
+            </label>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-control nz-col [nzSpan]="12" [nzOffset]="6">
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'">下一步</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="myStepContent" *ngIf="current === 1">
+
+    </div>
+    <div class="myStepContent" *ngIf="current === 2">
+
+    </div>
+    </div>
+  </div>
+</div>
