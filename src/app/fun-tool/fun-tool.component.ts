@@ -46,7 +46,7 @@ export class FunToolComponent implements OnInit {
       deadline: [ null, [Validators.required] ],
     });
   }
-  private getOne() {
+  getOne() {
     for (const i in this.toolOne.controls) {
       this.toolOne.controls[ i ].markAsDirty();
     }
@@ -55,7 +55,7 @@ export class FunToolComponent implements OnInit {
       this.resultOne.two = this.toolOne.value.amount / (1 + this.toolOne.value.rate / 100 ) / this.toolOne.value.netValue ;
     }
   }
-  private getTwo() {
+  getTwo() {
     for (const i in this.toolTwo.controls) {
       this.toolTwo.controls[ i ].markAsDirty();
     }
@@ -65,7 +65,7 @@ export class FunToolComponent implements OnInit {
       this.resultTwo.two = value.portio * value.netValue - value.portio;
     }
   }
-  private getThree() {
+  getThree() {
     for (const i in this.toolThree.controls) {
       this.toolThree.controls[ i ].markAsDirty();
     }

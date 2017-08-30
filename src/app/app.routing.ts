@@ -36,7 +36,7 @@ const routes: Routes = [{
     component: RegComponent
   },  { path: 'host/:_userId',
     component: HostComponent
-  },  { path: 'host-info/:_userId',
+  },  { path: 'host-info',
     component: HostInfoComponent
   },  { path: 'certification/:_userId',
     component: CertificationComponent

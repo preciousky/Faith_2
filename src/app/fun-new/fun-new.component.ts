@@ -32,7 +32,7 @@ export class FunNewComponent implements OnInit {
     });
   }
 
-  private scorllById(_id) {
+ scorllById(_id) {
     document.getElementById(_id).scrollIntoView();
   }
 
