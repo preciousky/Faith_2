@@ -73,7 +73,7 @@
     </div>
     <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
         <span><button [nzShape]="'circle'" [nzType]="'primary'" nz-button (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
-      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">注销</button>
+      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">{{username}}注销</button>
     </div>
   </form>
 </nz-header>

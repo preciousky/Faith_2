@@ -10,6 +10,7 @@ import { NzModalService } from 'ng-zorro-antd';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import {assertNotNull} from '@angular/compiler/src/output/output_ast';
 import {Router} from '@angular/router';
+import {CarrierService} from '../../service/carrier.service';
 
 @Component({
   selector: 'common-nav',
@@ -23,7 +24,8 @@ export class NavComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private modalService: NzModalService,
-    public route: Router
+    public route: Router,
+    private carrier: CarrierService
   ) { }
 
   ngOnInit() {
@@ -45,15 +47,14 @@ export class NavComponent implements OnInit {
     });
     subscription.subscribe(result => {
       console.log(result);
-      if ( result['code'] && result['code'] === 1) {
+      if (result['code'] === 1) {
         console.log('登录成功 nav拿到user_id为' + result['user_id'] + '  username为' + result['username']);
+        this.carrier.userId = result['user_id'];
+        this.username =  result['username'];
+        this.userId = result['user_id'];
       }else
-      if ( result['code'] && result['code'] === -1) {
+      if (result['code'] === -1) {
         console.log('http失败 nav拿到user_id为' + result['user_id'] + '  username为' + result['username']);
-
-        // TODO delete it 模拟登陆成功
-        this.userId = 12;
-        this.username = result['username'];
       }
 
     });
@@ -62,9 +63,9 @@ export class NavComponent implements OnInit {
   toHost() {
     this.route.navigate(['/host', this.userId]);
   }
-
   tologout() {
     this.route.navigate(['/']);
     this.userId = -1;
+    this.carrier.userId = -1;
   }
 }

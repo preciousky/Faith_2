@@ -6,11 +6,11 @@
         <div nz-col [nzSpan]="4">
           <div class="f-main-title" >账户信息</div>
         </div>
-        <div nz-col [nzSpan]="3" class = 'tips' style="color:green" *ngIf="user.isAuth === true">
+        <div nz-col [nzSpan]="3" class = 'tips' style="color:green" *ngIf="isAuth === true">
           <i class="anticon anticon-check"></i>
           <span>已实名</span>
         </div>
-        <div nz-col [nzSpan]="3" class = 'tips'  style="color:orangered" *ngIf="user.isAuth === false" >
+        <div nz-col [nzSpan]="3" class = 'tips'  style="color:orangered" *ngIf="isAuth === false" >
             <i class="anticon anticon-question" ></i>
             <span>未实名</span>
         </div>
@@ -20,15 +20,11 @@
 
 <div nz-row >
   <div nz-col [nzSpan]="4" >
-    <div class="f-sub-title"> 常规信息</div>
+    <div class="f-sub-title">常规信息</div>
   </div>
   <div nz-col [nzSpan]="1" >
     <button class = 'mybtn' nz-button [nzType]="'primary'" [nzShape]="'circle'"
-              (click) ='
-              userInputState.phone = "in";
-              userInputState.address = "in";
-              userInputState.email= "in";
-              changed = true;'>
+              (click) =' InputState = "in"; changed = true;'>
   <i class="anticon anticon-setting"></i>
   </button>
   </div>
@@ -47,7 +43,7 @@
       <span class = 'key'>邮箱：</span><div class = 'value'>{{user.email}}</div>
     </div>
     <div nz-col [nzSpan]="6" >
-      <nz-input [@flyInOut]="userInputState.email" [nzPlaceHolder]="'请输入新的邮箱'" (keyup)="newUser.email = $event.target.value"></nz-input>
+      <nz-input [@flyInOut]="InputState" [nzPlaceHolder]="'请输入新的邮箱'" (keyup)="newUser.email = $event.target.value"></nz-input>
     </div>
   </div >
 
@@ -56,7 +52,7 @@
       <span class = 'key'>手机：</span><div class = 'value'>{{user.phone}}</div>
     </div>
     <div nz-col [nzSpan]="6" >
-      <nz-input [@flyInOut]="userInputState.phone" [nzPlaceHolder]="'请输入新的手机号'" (keyup)="newUser.phone = $event.target.value"></nz-input>
+      <nz-input [@flyInOut]="InputState" [nzPlaceHolder]="'请输入新的手机号'" (keyup)="newUser.phone = $event.target.value"></nz-input>
     </div>
   </div >
 
@@ -65,7 +61,7 @@
       <span class = 'key'>通信地址：</span><div class = 'value'>{{user.address}}</div>
     </div>
     <div nz-col [nzSpan]="6" >
-      <nz-input [@flyInOut]="userInputState.address" [nzPlaceHolder]="'请输入新的通信地址'" (keyup)="newUser.address = $event.target.value"></nz-input>
+      <nz-input [@flyInOut]="InputState" [nzPlaceHolder]="'请输入新的通信地址'" (keyup)="newUser.address = $event.target.value"></nz-input>
     </div>
   </div >
 
@@ -83,27 +79,37 @@
 
   <div class="f-sub-title">实名信息</div>
   <div class="host-info-parts">
-  <div *ngIf="user.isAuth === true">
+  <div *ngIf="isAuth === true">
     <div nz-row class = 'myrow'>
       <div nz-col [nzSpan]="6" [nzOffset]="'1'">
         <span class = 'key'>真实姓名：</span><div class = 'value'>{{user.realname}}</div>
       </div>
     </div >
+    <div *ngFor="let card of user.owned_cards" style="
+    box-shadow: 0 0 2px;
+    padding: 9px;
+    margin: 24px;}">
+      <div nz-row class = 'myrow'>
+        <div nz-col [nzSpan]="6" [nzOffset]="'1'">
+          <span class = 'key'>开户银行：</span><div class = 'value'>{{card.bankname}}</div>
+        </div>
+      </div >
     <div nz-row class = 'myrow'>
       <div nz-col [nzSpan]="6" [nzOffset]="'1'">
-        <span class = 'key'>开户银行：</span><div class = 'value'>{{user.bankname}}</div>
+        <span class = 'key'>开户地：</span><div class = 'value'>{{card.bankarea}}</div>
       </div>
     </div >
     <div nz-row class = 'myrow'>
       <div nz-col [nzSpan]="6" [nzOffset]="'1'">
-        <span class = 'key'>开户地：</span><div class = 'value'>{{user.bankarea}}</div>
+        <span class = 'key'>银行卡号：</span><div class = 'value'>{{card.bankcard_no}}</div>
       </div>
     </div >
     <div nz-row class = 'myrow'>
       <div nz-col [nzSpan]="6" [nzOffset]="'1'">
-        <span class = 'key'>银行卡号：</span><div class = 'value'>{{user.bankcardNo}}</div>
+        <span class = 'key'>预留手机：</span><div class = 'value'>{{card.bankphone}}</div>
       </div>
     </div >
+    </div>
     <div style=" height: 60px; padding-top: 15px;">
     <div nz-row>
 
@@ -121,7 +127,7 @@
     </div>
     </div>
   </div>
-  <div *ngIf="user.isAuth === false"  style="padding-left:40px">
+  <div *ngIf="isAuth === false"  style="padding-left:40px">
     <p>
       您还没有实名验证，立即<a (click)="toCertificate()" >实名验证</a>，体验平台带给您的快捷。
     </p>

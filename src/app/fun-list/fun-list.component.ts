@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpPostService} from '../service/http-post.service';
 
 @Component({
   selector: 'fun-list',
@@ -7,40 +8,69 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./fun-list.component.scss']
 })
 export class FunListComponent implements OnInit {
-  fCardList1: Array<Object>;
-  fCardList2: Array<Object>;
+  fCardListRecommendation: Array<Object>;
+  fCardListSoon: Array<Object>;
   tableData: Array<Object>;
+  // remote loading
+  _current: number;
+  _total: number;
+  _dataSet: Array<any>;
+  _loading: boolean;
+  _pageSize: number;
   constructor(
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private httpPostService: HttpPostService,
+    private router: Router
   ) {
-    this.fCardList1 = [
-      // tslint:disable-next-line:max-line-length
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-    ];
-    this.fCardList2 = [
-      // tslint:disable-next-line:max-line-length
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-    ];
     this.tableData = [];
+    this._current = 1;
+    this._total = 1;
+    this._dataSet = []
+    this._loading = true;
+    this._pageSize = 10;
   }
 
   ngOnInit() {
     this.getRouteHref();
-    for (let i = 0; i < 20; i++) {
-      this.tableData.push({});
-    }
+    this.setRecommendation();
+    this.setSoon();
+    this._refreshData();
 
+  }
+  setRecommendation() {
+    const body = JSON.stringify({
+      'num': '3'
+    });
+    // TODO update here
+    // this.httpPostService.getReponseData('get-recommendations', body)
+    this.httpPostService.getReponseTestDataByPost('get-recommendations', body)
+      .subscribe(data => {
+      // TODO success
+        this.fCardListRecommendation = data.json().funds;
+    }, error => {
+      // TODO fail
+      // alert('http失败');
+    } );
+  }
+
+  setSoon() {
+    const body = JSON.stringify({
+      'num': '3'
+    });
+    // TODO update here
+    // this.httpPostService.getReponseData('get-soon-funds', body)
+    this.httpPostService.getReponseTestDataByPost('get-soon-funds', body)
+      .subscribe(data => {
+        // TODO success
+        this.fCardListSoon = data.json().funds;
+      }, error => {
+        // TODO fail
+        // alert('http失败');
+      } );
   }
 
   private getRouteHref() {
     return this.actRoute.params.subscribe(params => {
-      console.log(params);
       // window.location.hash = params._name;
       this.scorllById(params._name);
     });
@@ -50,4 +80,24 @@ export class FunListComponent implements OnInit {
     document.getElementById(_id).scrollIntoView();
   }
 
+  toDetails(fundId: number) {
+    this.router.navigate(['details', fundId]);
+  }
+
+  _refreshData = () => {
+    this._loading = true;
+    const body = JSON.stringify({
+      // TODO load data
+      page_no: this._current,
+      page_size: this._pageSize
+    });
+    // this.httpPostService.getReponseData(this._current, this._pageSize, 'get-fund-list')
+    this.httpPostService.getReponseTestDataByPost('get-fund-list', body)
+      .subscribe(data => {
+        const d = data.json();
+        this._dataSet = d.funds;
+        this._total = d.log_num;
+        this._loading = false;
+      });
+  }
 }

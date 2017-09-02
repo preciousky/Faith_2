@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormGroup
 } from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpPostService} from '../service/http-post.service';
 
 @Component({
@@ -14,7 +14,10 @@ import {HttpPostService} from '../service/http-post.service';
 export class QuestionnaireComponent implements OnInit {
   questionnaireForm: FormGroup;
   userId;
-  constructor(private fb: FormBuilder, public router: Router, public httpPostService: HttpPostService) {
+  constructor(private fb: FormBuilder,
+              public router: Router,
+              public httpPostService: HttpPostService,
+              public route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -38,10 +41,43 @@ export class QuestionnaireComponent implements OnInit {
       q17 : [ 1 ],
       q18 : [ 1 ],
     });
+    this.route.params.subscribe(params => {
+      this.userId = params['_userId'];
+    });
   }
 
   finishQuestions() {
-    alert('注册结束\n你可以登入平台')
-    this.router.navigate(['/']);
+      const body = JSON.stringify({
+        'user_id': this.userId ,
+        'answers': [this.questionnaireForm.value.q1,
+                      this.questionnaireForm.value.q2,
+                      this.questionnaireForm.value.q3,
+                      this.questionnaireForm.value.q4,
+                      this.questionnaireForm.value.q5,
+                      this.questionnaireForm.value.q6,
+                      this.questionnaireForm.value.q7,
+                      this.questionnaireForm.value.q8,
+                      this.questionnaireForm.value.q9,
+                      this.questionnaireForm.value.q10,
+                      this.questionnaireForm.value.q11,
+                      this.questionnaireForm.value.q12,
+                      this.questionnaireForm.value.q13,
+                      this.questionnaireForm.value.q14,
+                      this.questionnaireForm.value.q15,
+                      this.questionnaireForm.value.q16,
+                      this.questionnaireForm.value.q17,
+                      this.questionnaireForm.value.q18]
+      });
+      // this.httpPostService.getReponseData('questionnaire', body)
+      this.httpPostService.getReponseTestDataByPost('questionnaire', body)
+        .subscribe(data => {
+          const d = data.json();
+          if ( d.code === '1') {
+            alert('问卷测试结束，您是' + d.description + '类型的客户，您现在可以登入平台了');
+            this.router.navigate(['/']);
+          }
+        }, error => {
+          // alert('http失败');
+        } );
   }
 }

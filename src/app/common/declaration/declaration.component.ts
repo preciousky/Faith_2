@@ -35,6 +35,6 @@ export class DeclarationComponent implements OnInit {
   }
   getDeclaration(url: string): Observable <any> {
     console.log('ini2');
-    return this.httpPostService.getReponsTestDataByGet(url);
+    return this.httpPostService.getReponseDataByGet(url);
   }
 }

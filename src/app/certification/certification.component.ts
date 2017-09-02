@@ -23,15 +23,7 @@ export class CertificationComponent implements OnInit {
   }
 
   constructor(public router: Router,
-  private fb: FormBuilder, public route: ActivatedRoute, public httpPostService: HttpPostService ) {
-  }
-
-  // updateConfirmValidator() {
-  //   /** wait for refresh value */
-  //   setTimeout(_ => {
-  //     this.RegForm.controls[ 'checkPassword' ].updateValueAndValidity();
-  //   });
-  // }
+  private fb: FormBuilder, public route: ActivatedRoute, public httpPostService: HttpPostService ) {}
 
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {
@@ -71,8 +63,6 @@ export class CertificationComponent implements OnInit {
   }
 
   toCertificate() {
-
-    console.log(this.CertificationForm);
     if (this.CertificationForm.invalid === false ) {
       // TODO send the data to server
       const body = JSON.stringify({
@@ -85,23 +75,17 @@ export class CertificationComponent implements OnInit {
         'bankarea': this.CertificationForm.value.bankarea,
         'tcode': this.CertificationForm.value.tcode,
       });
-      console.log(body);
-      // TODO update the url
-      this.httpPostService.getReponseData('TODO,seturl', body).subscribe(data => {
-        // TODO data.json()
-
-      },
-          error => {
-        this.httpPostService.getReponsTestDataByGet('mock-data/get-fund-detail-mock.json')
-          .subscribe(data => {
-            // TODO data.json()
-          });
-        // alert('http失败,已经使用虚拟数据');
+      // this.httpPostService.getReponseData('certification', body)
+      this.httpPostService.getReponseTestDataByPost('certification', body)
+        .subscribe(data => {
+        const d = data.json();
+        if ( d.code === '1') {
+          alert('实名认证成功！可以选购基金！');
+          this.router.navigate(['/funlist', 'reco']) ;
+        }
+      }, error => {
+        // alert('http失败');
       } );
-      // TODO update it
-      // pretend we certificated successfully
     }
-    alert('pretend to succeed to be certificated')
-    this.router.navigate(['/funlist', 'reco']) ;
   }
 }

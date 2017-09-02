@@ -10,10 +10,10 @@
       <p>精挑细选的优质基金精挑细选的优质基金精挑细选的优质基金精挑细选的优质基金</p>
     </div>
     <div [style.padding]="'0 100px'">
-      <fcard [fCardList]="fCardList"></fcard>
+      <fcard [fCardList]="fCardListRecommendation"></fcard>
     </div>
     <div [ngStyle]="{'text-align': 'center'}">
-      <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+      <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'" (click)="toAllFunds()">查看全部</button>
     </div>
 </div>
 

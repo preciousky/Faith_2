@@ -37,6 +37,7 @@ import { CertificationComponent } from './certification/certification.component'
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { DeclarationComponent } from './common/declaration/declaration.component';
 import { ToBuyComponent } from './to-buy/to-buy.component';
+import {CarrierService} from './service/carrier.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,7 @@ import { ToBuyComponent } from './to-buy/to-buy.component';
     NgZorroAntdModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [FunEssayService, ServiceService, HttpPostService, EchartsService],
+  providers: [FunEssayService, ServiceService, HttpPostService, EchartsService, CarrierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,7 +22,7 @@ export class RegComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, public httpPostservice: HttpPostService, public router: Router) {
+  constructor(private fb: FormBuilder, public httpPostService: HttpPostService, public router: Router) {
 
   }
 
@@ -48,7 +48,7 @@ export class RegComponent implements OnInit {
   ngOnInit() {
     this.userId = -1;
     this.RegForm = this.fb.group({
-      phone          : [ null, [ Validators.required ] ],
+      username          : [ null, [ Validators.required ] ],
       password         : [ null, [ Validators.required ] ],
       checkPassword    : [ null, [ Validators.required, this.confirmationValidator ] ],
       // TODO set a way to make sure you are a human
@@ -63,8 +63,23 @@ export class RegComponent implements OnInit {
       if (this.RegForm.invalid === false) {
         // TODO fetch and deal with the data from view
         // TODO and set this.userId by the response data
-
-        this.router.navigate(['/questionnaire', this.userId ]);
+          // TODO send the data to server
+          const body = JSON.stringify({
+            'username': this.RegForm.value.username,
+            'password': this.RegForm.value.password
+          });
+          // this.httpPostService.getReponseData('certification', body)
+          this.httpPostService.getReponseTestDataByPost('enroll', body)
+            .subscribe(data => {
+              const d = data.json();
+              if ( d.code === '1') {
+                alert('注册成功！可以进行问卷测试！');
+                this.userId = d.user_id;
+                this.router.navigate(['/questionnaire', this.userId ]);
+              }
+            }, error => {
+              // alert('http失败');
+            } );
       }
   }
 

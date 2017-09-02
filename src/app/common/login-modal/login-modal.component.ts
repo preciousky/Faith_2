@@ -15,7 +15,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class LoginModalComponent implements OnInit {
   LoginForm: FormGroup;
-  username: string;
   user_id: number;
   constructor(
     private fb: FormBuilder,
@@ -34,14 +33,10 @@ export class LoginModalComponent implements OnInit {
       password: [ null, [ Validators.required ] ],
      // remember: [ true ],
     });
-    this.username = null;
     this.user_id = -1;
   }
 
   toLogin() {
-    // TODO delete it later
-    this.router.navigate(['/host', '10']);
-
     for (const i in this.LoginForm.controls) {
       this.LoginForm.controls[i].markAsDirty();
     }
@@ -50,16 +45,24 @@ export class LoginModalComponent implements OnInit {
         username: this.LoginForm.value.username,
         password: this.LoginForm.value.password
       });
-      console.log(body);
-
-    // TODO set a url to server
-    this.httpPostService.getReponseData('/api/login', body).subscribe(data => {
-        this.subject.next({code: 1, user_id: data.json().user_id, username: this.username});
-        this.subject.destroy('onCancel');
-      },
-      error => {
-        this.subject.next({code: -1, user_id: -1, username: 'Mr.error'});
-      });
+      // TODO update here
+      // this.httpPostService.getReponseData('login', body)
+      this.httpPostService.getReponseTestDataByPost('login', body)
+        .subscribe(data => {
+          const d = data.json();
+          // TODO success
+          if (d.code ===  '1') {
+            this.subject.next({code: 1, user_id: d.user_id, username: this.LoginForm.value.username});
+            this.subject.destroy('onCancel');
+          }else if (d.code === '6') {
+              alert('密码错误！');
+          }
+          // TODO continue
+        }, error => {
+          // TODO fail
+          this.subject.next({code: -1, user_id: -1, username: 'Mr.error'});
+          alert('network error!');
+        } );
     }
   }
 

@@ -10,9 +10,33 @@ export class HttpPostService {
     const options = new RequestOptions({headers: headers});
     console.log('request:');
     console.log(body);
-    return this.http.post(url, body, options);
+    // TODO to test, please delete it later
+    const testURL = './mock-data/' + url + '.json';
+    return this.http.post(testURL, body, options);
   }
-  getReponsTestDataByGet(url: string) {
-    return this.http.get(url);
+  getReponseDataByGet(url: string) {
+    const testURL = './mock-data/' + url + '.json';
+    console.log('------------------------start------------------------------');
+    console.log('reponse data:');
+    this.http.get(testURL).subscribe(data => {
+      console.log(data.json());
+      console.log('-------------------------end---------------------------');
+    });
+    return this.http.get(testURL);
+  }
+  getReponseTestDataByPost(url: string, body: any) {
+    const testURL = './mock-data/' + url + '.json';
+
+    console.log('------------------------start------------------------------');
+    console.log('request data:');
+    console.log(body);
+    console.log('······················································');
+    console.log('reponse data:');
+    this.http.get(testURL).subscribe(data => {
+      console.log(data.json());
+      console.log('--------------------------end--------------------------');
+    });
+
+    return this.http.get(testURL);
   }
 }

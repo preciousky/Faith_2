@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpPostService} from '../service/http-post.service';
+import {Router} from "@angular/router";
 
 interface ShowCard {
   name: String;
@@ -14,29 +16,39 @@ interface ShowCard {
 })
 export class HomeComponent implements OnInit {
   picList: Array<Object>;
-  fCardList: Array<ShowCard>;
+  fCardListRecommendation: Array<ShowCard>;
   count: Array<any>;
-  constructor() {
+  constructor(private httpPostService: HttpPostService,
+              private router: Router) {
     this.picList = [
       { src: './assets/pic/index_road.jpg', title: '' },
       { src: './assets/pic/index_friends.jpg', title: '' },
       { src: './assets/pic/index_people.jpg', title: '' },
       { src: './assets/pic/index-sea.jpg', title: '' },
     ];
-    this.fCardList = [
-      // tslint:disable-next-line:max-line-length
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-      { name: '基金名称', id: 0, src: './assets/pic/product.jpg', info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus consectetur dolor a porttitor. Curabitur id sem sed ante fringilla pulvinar et id lectus. Nullam justo ipsum, hendrerit ut commodo nec, pellentesque nec erat. Pellentesque pharetra.' },
-    ];
   }
 
   ngOnInit() {
+    this.setRecommendation();
   }
 
-  getRecoFund() {
-    // set fCardList
+  setRecommendation() {
+    const body = JSON.stringify({
+      'num': '3'
+    });
+    // TODO update here
+    // this.httpPostService.getReponseData('get-recommendations', body)
+    this.httpPostService.getReponseTestDataByPost('get-recommendations', body)
+      .subscribe(data => {
+        // TODO success
+        this.fCardListRecommendation = data.json().funds;
+      }, error => {
+        // TODO fail
+        // alert('http失败');
+      } );
   }
 
+  toAllFunds() {
+    this.router.navigate(['funlist', 'lv']);
+  }
 }

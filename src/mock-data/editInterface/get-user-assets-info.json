@@ -1,0 +1,178 @@
+{
+"user":{
+		
+		"is_auth": "true"
+		"savings": "9999"
+		"total_asset": "19999"
+		"total_profit": "29999"
+		"funds-netvalue": "39999"
+		"owned_funds": [
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999"
+			"fund_name": "基金名称-我的持仓-测试"
+			"fund_last_netvalue":"2999"
+			"ship_share"："99999"
+			"ship_vaild_share": "90000"
+			"ship_bankcard_no": "9999999999999999999999"
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		
+		]
+		"trade_log": [
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		{
+			"ship_date": "2099-9-9",
+			"ship_time": "99:99:99",
+			"fundcode": "990909999999",
+			"fund_name": "基金名称-交易记录-测试",
+			"ship_bankcard_no": "999999999990000000000",
+			"operation": "in",
+			"ship_turnover": "9999990"
+		},
+		
+		]
+		}
+}

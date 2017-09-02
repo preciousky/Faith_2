@@ -3,9 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 interface ShowCard {
   name: string;
-  id: number;
-  src: string;
-  info: string;
+  fund_id: number;
+  pic: string;
+  reason: string;
+  forecast_profit_rate: string;
 }
 
 

@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 interface SmallCard {
   name: string;
-  id: number;
-  info: string;
+  fund_id: number;
+  netvalue: number;
+  date: string;
 }
 @Component({
   selector: 'fscard',

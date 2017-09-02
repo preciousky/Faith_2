@@ -3,11 +3,11 @@
 <form nz-form [formGroup]="RegForm" (ngSubmit)="_submitForm()">
   <div nz-form-item nz-row>
     <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
-      <label nz-form-item-required>phone</label>
+      <label nz-form-item-required>username</label>
     </div>
-    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('phone')">
-      <nz-input [nzSize]="'large'" formControlName="phone" [nzId]="'phone'"></nz-input>
-      <div nz-form-explain *ngIf="getFormControl('phone').dirty&&getFormControl('phone').hasError('required')">Please input phone!</div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('username')">
+      <nz-input [nzSize]="'large'" formControlName="username" [nzId]="'username'"></nz-input>
+      <div nz-form-explain *ngIf="getFormControl('username').dirty&&getFormControl('username').hasError('required')">Please input username!</div>
     </div>
   </div>
   <div nz-form-item nz-row>
