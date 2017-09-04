@@ -35,9 +35,17 @@ import { BackTopComponent } from './common/back-top/back-top.component';
 import { HostInfoComponent } from './host-info/host-info.component';
 import { CertificationComponent } from './certification/certification.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { DeclarationComponent } from './common/declaration/declaration.component';
 import { ToBuyComponent } from './to-buy/to-buy.component';
 import {CarrierService} from './service/carrier.service';
+import { ForUserComponent } from './common/declaration/for-user/for-user.component';
+import { ForPrivacyComponent } from './common/declaration/for-privacy/for-privacy.component';
+import { ForDangerComponent } from './common/declaration/for-danger/for-danger.component';
+import { ForOurTeamComponent } from './common/declaration/for-our-team/for-our-team.component';
+import { ForumComponent } from './forum/forum.component';
+import { ForumCardComponent } from './common/forum-card/forum-card.component';
+import { EditComponent } from './edit/edit.component';
+import { ForumDetailsComponent } from './forum-details/forum-details.component';
+import { FunGreenDetailsComponent } from './fun-green-details/fun-green-details.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +66,16 @@ import {CarrierService} from './service/carrier.service';
     HostInfoComponent,
     CertificationComponent,
     QuestionnaireComponent,
-    DeclarationComponent,
-    ToBuyComponent
+    ToBuyComponent,
+    ForUserComponent,
+    ForPrivacyComponent,
+    ForDangerComponent,
+    ForOurTeamComponent,
+    ForumComponent,
+    ForumCardComponent,
+    EditComponent,
+    ForumDetailsComponent,
+    FunGreenDetailsComponent
   ],
   entryComponents: [
     LoginModalComponent,

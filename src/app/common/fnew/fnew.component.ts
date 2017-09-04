@@ -16,6 +16,7 @@ interface fNew {
 
 export class FnewComponent implements OnInit {
   @Input() fNewList: Array<fNew>;
+  @Input() routeURL: string;
   constructor() { }
 
   ngOnInit() {

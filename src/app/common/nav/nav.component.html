@@ -1,8 +1,10 @@
 <nz-header>
-  <div class="logo" routerLink="/">
-    <img style="height: 62px;" src="./assets/pic/logo.png">
-  </div>
   <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="f-head-menu">
+    <li nz-menu-item style="height: 65px;">
+      <a class="logo" routerLink="/">
+        <img style="height: 62px;" src="./assets/pic/logo.png">
+      </a>
+    </li>
     <li nz-submenu>
       <span title><i class="anticon anticon-mail"></i>FOF基金产品</span>
       <ul>
@@ -51,9 +53,23 @@
     <li nz-menu-item>
       <a routerLink="/funtool">基金工具</a>
     </li>
-    <li nz-menu-item>论坛</li>
+    <li nz-menu-item>
+      <a routerLink="/forum">论坛</a>
+    </li>
   </ul>
   <form  class="f-head-form" nz-form [nzLayout]="'inline'" [formGroup]="searchForm" (ngSubmit)="_submitSearch()">
+    <div style="margin-right: 30px; font-weight:100" nz-form-item>
+      <div *ngIf="userId != -1">
+        <p>欢迎，{{username}}</p>
+      </div>
+    </div>
+    <div  id="loginDiv" *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
+    <span><i id = "loginIcon" class="anticon anticon-login"></i></span>
+  </div>
+    <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
+      <span><button style="size-weight:900" [nzShape]="'circle'" [nzType]="'primary'" nz-button (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
+      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">注销</button>
+    </div>
     <div nz-form-item>
       <div nz-form-control>
         <nz-input formControlName="search" [nzPlaceHolder]="'请输入...'" [nzSize]="'large'">
@@ -68,12 +84,6 @@
         <i class="anticon anticon-search"></i>
     </button>
     </div>
-    <div  id="loginDiv" *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
-      <span><i id = "loginIcon" class="anticon anticon-login"></i></span>
-    </div>
-    <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
-        <span><button [nzShape]="'circle'" [nzType]="'primary'" nz-button (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
-      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">{{username}}注销</button>
-    </div>
+
   </form>
 </nz-header>

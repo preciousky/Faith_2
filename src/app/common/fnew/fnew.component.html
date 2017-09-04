@@ -4,7 +4,7 @@
         {{itm.title}}
       </ng-template>
       <ng-template #extra>
-        <a [routerLink]="['/funeassay', '11']">More</a>
+        <a [routerLink]="[routeURL, itm.id]">More</a>
       </ng-template>
       <ng-template #body>
         {{itm.info}}

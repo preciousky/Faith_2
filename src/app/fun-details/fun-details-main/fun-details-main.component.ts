@@ -209,6 +209,7 @@ export class FunDetailsMainComponent implements OnInit {
   }
   toBuy() {
     this.router.navigate(['/toBuy', {userId: 1, fundId: 1, fundName: 'testfundname'}]);
+    return true;
   }
   _refreshData = () => {
     this.log._loading = true;
@@ -219,10 +220,10 @@ export class FunDetailsMainComponent implements OnInit {
     // this.httpPostService.getReponseData(this._current, this._pageSize, 'netvalue-log')
     this.httpPostService.getReponseTestDataByPost('netvalue-log', body)
       .subscribe(data => {
-      const d = data.json();
+        const d = data.json();
         this.log._dataSet = d.netvalues_log;
         this.log._total = d.log_num;
         this.log._loading = false;
-    });
+      });
   }
 }
