@@ -35,14 +35,25 @@ import { BackTopComponent } from './common/back-top/back-top.component';
 import { HostInfoComponent } from './host-info/host-info.component';
 import { CertificationComponent } from './certification/certification.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { DeclarationComponent } from './common/declaration/declaration.component';
 import { ToBuyComponent } from './to-buy/to-buy.component';
 import {CarrierService} from './service/carrier.service';
+<<<<<<< HEAD
 import { LuntanComponent } from './luntan/luntan.component';
 import { SaveComponent } from './luntan/save/save.component';
 import { PutupComponent } from './luntan/putup/putup.component';
 import { Fnew2Component } from './luntan/fnew2/fnew2.component';
 import { WordsComponent } from './luntan/words/words.component';
+=======
+import { ForUserComponent } from './common/declaration/for-user/for-user.component';
+import { ForPrivacyComponent } from './common/declaration/for-privacy/for-privacy.component';
+import { ForDangerComponent } from './common/declaration/for-danger/for-danger.component';
+import { ForOurTeamComponent } from './common/declaration/for-our-team/for-our-team.component';
+import { ForumComponent } from './forum/forum.component';
+import { ForumCardComponent } from './common/forum-card/forum-card.component';
+import { EditComponent } from './edit/edit.component';
+import { ForumDetailsComponent } from './forum-details/forum-details.component';
+import { FunGreenDetailsComponent } from './fun-green-details/fun-green-details.component';
+>>>>>>> 89115e436955fbbf6c44d131b7430f0afef8c62b
 
 @NgModule({
   declarations: [
@@ -63,6 +74,7 @@ import { WordsComponent } from './luntan/words/words.component';
     HostInfoComponent,
     CertificationComponent,
     QuestionnaireComponent,
+<<<<<<< HEAD
     DeclarationComponent,
     ToBuyComponent,
     LuntanComponent,
@@ -70,6 +82,18 @@ import { WordsComponent } from './luntan/words/words.component';
     PutupComponent,
     Fnew2Component,
     WordsComponent
+=======
+    ToBuyComponent,
+    ForUserComponent,
+    ForPrivacyComponent,
+    ForDangerComponent,
+    ForOurTeamComponent,
+    ForumComponent,
+    ForumCardComponent,
+    EditComponent,
+    ForumDetailsComponent,
+    FunGreenDetailsComponent
+>>>>>>> 89115e436955fbbf6c44d131b7430f0afef8c62b
   ],
   entryComponents: [
     LoginModalComponent,

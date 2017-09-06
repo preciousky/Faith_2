@@ -13,15 +13,15 @@ export class FootComponent implements OnInit {
   ngOnInit() {
   }
   forUsers() {
-      this.router.navigate(['/declaration', 'forUsers'], { replaceUrl: false });
+      this.router.navigate(['/forUser'], { replaceUrl: false });
   }
   forPrivacy() {
-    this.router.navigate(['/declaration', 'forPrivacy'], { replaceUrl: false });
+    this.router.navigate(['/forPrivacy'], { replaceUrl: false });
   }
   forDanger() {
-    this.router.navigate(['/declaration', 'forDanger'], { replaceUrl: false });
+    this.router.navigate(['/forDanger'], { replaceUrl: false });
   }
   forOurTeam() {
-    this.router.navigate(['/declaration', 'forOurTeam'], { replaceUrl: false });
+    this.router.navigate(['/forOurTeam'], { replaceUrl: false });
   }
 }
