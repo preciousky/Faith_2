@@ -3,17 +3,17 @@
 <h3>前端认购费率</h3>
 <nz-table>
   <thead nz-thead>
-  <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+  <tr >
+    <th nz-th ><span>申购金额/万元</span></th>
+    <th nz-th *ngFor="let Amount of data.PurchasAmount">
+    <span>{{Amount}}</span>
+    </th>
   </tr>
   </thead>
   <tbody nz-tbody>
-  <tr nz-tbody-tr>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
+  <tr nz-tbody-tr >
+    <td nz-td >申购费率</td>
+    <td nz-td *ngFor="let rate of data.PurchasRate">{{rate}}</td>
   </tr>
   </tbody>
 </nz-table>
@@ -22,18 +22,9 @@
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+   <h3>暂无此收费方式</h3>
   </tr>
   </thead>
-  <tbody nz-tbody>
-  <tr nz-tbody-tr>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-  </tr>
-  </tbody>
 </nz-table>
 
 <div class="f-sub-title">申购相关费用</div>
@@ -41,61 +32,72 @@
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+    <th nz-th>申购金额/万元</th>
+    <th nz-th><span>{{data.a22}}</span></th>
+    <th nz-th><span>{{data.a22}}</span></th>
+    <th nz-th><span>{{data.a22}}</span></th>
+    <th nz-th><span>{{data.a22}}</span></th>
   </tr>
   </thead>
   <tbody nz-tbody>
   <tr nz-tbody-tr>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
+    <td nz-td>申购费率</td>
+    <td nz-td>{{data.a23}}</td>
+    <td nz-td>{{data.a23}}</td>
+    <td nz-td>{{data.a23}}</td>
+    <td nz-td>{{data.a23}}</td>
   </tr>
   </tbody>
 </nz-table>
 
-<h3>后端申购费率</h3>
+<h3>后端认购费率</h3>
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+   <h3>暂无此收费方式</h3>
   </tr>
   </thead>
-  <tbody nz-tbody>
-  <tr nz-tbody-tr>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
-  </tr>
-  </tbody>
 </nz-table>
 
 <h3>申购限制</h3>
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>基金类型</span></th>
+    <th nz-th><span>申购起点</span></th>
+    <th nz-th><span>日累计申购限额</span></th>
+    <th nz-th><span>首次购买</span></th>
+    <th nz-th><span>追加购买</span></th>
   </tr>
   </thead>
   <tbody nz-tbody>
   <tr nz-tbody-tr>
+    <td nz-td>基金1/2</td>
+    <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
   </tr>
   </tbody>
-</nz-table>
+  <tbody nz-tbody>
+  <tr nz-tbody-tr>
+    <td nz-td>基金3/4/5</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+  </tr>
+  </tbody>
 
 <div class="f-sub-title">赎回相关费用</div>
 <h3>前端赎回费率</h3>
+<h3>基金1</h3>
 <nz-table>
   <thead nz-thead>
   <tr>
+    <th nz-th><span>持有年限</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
@@ -103,17 +105,22 @@
   </thead>
   <tbody nz-tbody>
   <tr nz-tbody-tr>
+    <td nz-td>赎回费率</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
   </tr>
   </tbody>
 </nz-table>
-
-<h3>后端赎回费率</h3>
+<h3>基金2/3</h3>
 <nz-table>
   <thead nz-thead>
   <tr>
+    <th nz-th><span>持有年限</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
     <th nz-th><span>XXX</span></th>
@@ -121,26 +128,57 @@
   </thead>
   <tbody nz-tbody>
   <tr nz-tbody-tr>
+    <td nz-td>赎回费率</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
     <td nz-td>---</td>
   </tr>
   </tbody>
 </nz-table>
-
+<h3>基金4/5</h3>
+<nz-table>
+  <thead nz-thead>
+  <tr>
+    <th nz-th><span>持有年限</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>XXX</span></th>
+  </tr>
+  </thead>
+  <tbody nz-tbody>
+  <tr nz-tbody-tr>
+    <td nz-td>赎回费率</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+    <td nz-td>---</td>
+  </tr>
+  </tbody>
+</nz-table>
+<h3>后端认购费率</h3>
+<nz-table>
+  <thead nz-thead>
+  <tr>
+   <h3>暂无此收费方式</h3>
+  </tr>
+  </thead>
+</nz-table>
 <h3>赎回限制</h3>
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>单笔最小赎回份额</span></th>
     <th nz-th><span>XXX</span></th>
   </tr>
   </thead>
   <tbody nz-tbody>
   <tr nz-tbody-tr>
-    <td nz-td>---</td>
-    <td nz-td>---</td>
+    <td nz-td>账户最低保留份额</td>
     <td nz-td>---</td>
   </tr>
   </tbody>
@@ -150,9 +188,9 @@
 <nz-table>
   <thead nz-thead>
   <tr>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
-    <th nz-th><span>XXX</span></th>
+    <th nz-th><span>销售服务费率</span></th>
+    <th nz-th><span>基金管理费率</span></th>
+    <th nz-th><span>基金托管费率</span></th>
   </tr>
   </thead>
   <tbody nz-tbody>

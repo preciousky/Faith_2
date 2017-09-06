@@ -1,0 +1,41 @@
+<div class="f-container">
+
+<div class="f-main">
+  <div class="f-main-title" id="lun0">最热</div>
+      <fnew2 [Article]="Article"></fnew2>
+      <div [ngStyle]="{'text-align': 'center'}">
+        <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+      </div>
+  <div class="f-main-title">最新</div>
+      <fnew2 [Article]="Article"></fnew2>
+      <div [ngStyle]="{'text-align': 'center'}">
+        <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+      </div>
+  <div class="f-main-title">历史</div>
+      <fnew2 [Article]="Article"></fnew2>
+      <div [ngStyle]="{'text-align': 'center'}">
+        <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>
+      </div>
+</div>
+<div class="f-left">
+      <ul class="f-left-menu" nz-menu [nzMode]="'vertical'">
+        <li nz-menu-item>
+          <a (click)="scorllById('lun0')"><i class="anticon anticon-appstore"></i>浏览</a>
+        </li>
+        <li nz-menu-item>
+          <a (click)="scorllById('lun1')"><i class="anticon anticon-appstore"></i>收藏</a>
+        </li>
+        <li nz-menu-item>
+          <a (click)="scorllById('lun2')"><i class="anticon anticon-appstore"></i>发帖</a>
+        </li>
+      </ul>
+</div>
+  
+  <div class="f-main" id="lun2">
+  	<putup></putup>
+  </div>
+  <div class="f-main" id="lun1">
+  	<save></save>
+  </div>
+  <div class="f-right"></div>
+ </div> 

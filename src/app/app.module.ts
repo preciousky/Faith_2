@@ -38,6 +38,11 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { DeclarationComponent } from './common/declaration/declaration.component';
 import { ToBuyComponent } from './to-buy/to-buy.component';
 import {CarrierService} from './service/carrier.service';
+import { LuntanComponent } from './luntan/luntan.component';
+import { SaveComponent } from './luntan/save/save.component';
+import { PutupComponent } from './luntan/putup/putup.component';
+import { Fnew2Component } from './luntan/fnew2/fnew2.component';
+import { WordsComponent } from './luntan/words/words.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,12 @@ import {CarrierService} from './service/carrier.service';
     CertificationComponent,
     QuestionnaireComponent,
     DeclarationComponent,
-    ToBuyComponent
+    ToBuyComponent,
+    LuntanComponent,
+    SaveComponent,
+    PutupComponent,
+    Fnew2Component,
+    WordsComponent
   ],
   entryComponents: [
     LoginModalComponent,

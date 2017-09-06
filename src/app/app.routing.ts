@@ -13,20 +13,32 @@ import { CertificationComponent } from './certification/certification.component'
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { DeclarationComponent} from './common/declaration/declaration.component';
 import { ToBuyComponent } from './to-buy/to-buy.component';
+import { LuntanComponent} from './luntan/luntan.component';
 
+import { SaveComponent } from './luntan/save/save.component';
+import { PutupComponent } from './luntan/putup/putup.component';
+import { Fnew2Component } from './luntan/fnew2/fnew2.component';
 const _HomeModule = 'app/home/home.module#HomeModule';
 const _FunDetailsModule = 'app/fun-details/fun-details.module#FunDetailsModule';
 
 const routes: Routes = [{
     path: 'funlist/:_name',
     component: FunListComponent
-  }, {
-    path: 'funnew/:_name',
-    component: FunNewComponent
-  }, {
+  },  {
     path: 'fungreen/:_name',
     component: FunGreenComponent
-  }, {
+  },{
+    path: 'funnew/:_name',
+    component: FunNewComponent
+  },
+   {path: 'luntan/:_name',
+    component: LuntanComponent,
+    children:[
+    {path:'collect',component: SaveComponent},
+    {path:'report',component: PutupComponent},
+    ],
+  },
+   {
     path: 'funtool',
     component: FunToolComponent
   }, {

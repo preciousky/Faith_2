@@ -51,7 +51,20 @@
     <li nz-menu-item>
       <a routerLink="/funtool">基金工具</a>
     </li>
-    <li nz-menu-item>论坛</li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-mail"></i>论坛</span>
+      <ul>
+        <li nz-menu-item>
+            <a [routerLink]="['/luntan', 'lun0']">浏览论坛</a>
+        </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/luntan', 'lun1']">我的收藏</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/luntan', 'lun2']">我要发声</a>
+          </li>
+      </ul>
+    </li>
   </ul>
   <form  class="f-head-form" nz-form [nzLayout]="'inline'" [formGroup]="searchForm" (ngSubmit)="_submitSearch()">
     <div nz-form-item>
